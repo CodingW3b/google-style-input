@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans:400,400i,600,700");
+
+:root {
+  --color: #80868b;
+  --active-color: #1a73e8;
+  --error-color: #f44336;
+  --input-value-color: #202124;
+  --border-color: 1px solid #dadce0;
+
+  --border-color-active: 3px solid var(--active-color);
+  --default-background: #fff;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: "open sans", roboto, arial, sans-seif;
+  background: var(--default-background);
+  min-height: 100vh;
+  /* background-color: #00ff00; */
+}
+input {
+  background: var(--default-background);
+}
+
+.input-box {
+  position: relative;
+  width: 300px;
+  margin: 10px 0;
+  .input-label {
+    position: absolute;
+    color: var(--color);
+    font-size: 16px;
+    font-weight: 400;
+    max-width: calc(100% - (2 * 8px));
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    left: 8px;
+    top: 13px;
+    padding: 0 8px;
+    transition: 250ms;
+    user-select: none;
+    pointer-events: none;
+    svg {
+      position: relative;
+      width: 15px;
+      height: 15px;
+      top: 2px;
+      transition: 250ms;
+    }
+  }
+  .input-1 {
+    box-sizing: border-box;
+    height: 50px;
+    width: 100%;
+    border-radius: 4px;
+    color: var(--input-value-color);
+    border: var(--border-color);
+    padding: 13px 15px;
+    box-shadow: 0 4px 16px rgba(0, 0, 0, 0.05);
+
+    transition: 250ms;
+    &:focus {
+      outline: none;
+      border: 2px solid #1a73e8;
+      transition: 250ms;
+    }
+  }
+}
+
+.input-box.focus,
+.input-box.active {
+  .input-label {
+    color: var(--active-color);
+    top: -8px;
+    background: var(--default-background);
+    font-size: 11px;
+
+    transition: 250ms;
+
+    svg {
+      position: relative;
+      width: 11px;
+      height: 11px;
+      top: 2px;
+      transition: 250ms;
+    }
+  }
+}
+.input-box.active {
+  .input-1 {
+    border: 2px solid #1a73e8;
+  }
+}
