@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Input Element Like Google</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="input-box">
+      <label class="input-label">Email or phone</label>
+      <input
+        type="text"
+        class="input-1"
+        onfocus="setFocus(true)"
+        onblur="setFocus(false)"
+      />
+    </div>
+  </body>
+
+  <script>
+    function setFocus(on) {
+      var element = document.activeElement;
+      if (on) {
+        setTimeout(function () {
+          element.parentNode.classList.add("focus");
+        });
+      } else {
+        let box = document.querySelector(".input-box");
+        box.classList.remove("focus");
+        $("input").each(function () {
+          var $input = $(this);
+          var $parent = $input.closest(".input-box");
+          if ($input.val()) $parent.addClass("focus");
+          else $parent.removeClass("focus");
+        });
+      }
+    }
+  </script>
+</html>
